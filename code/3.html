@@ -1,0 +1,46 @@
+<script>
+// 房子
+function House() {
+  this.bedRoom = "";
+  this.livingRoom = "";
+  this.kitchen = "";
+}
+
+// 监工
+function Overseer() {
+  // 指挥盖房子
+  this.conductCreateHouse = function (worker) {
+    worker.createBedRoom();
+    worker.createLivingRoom();
+    worker.createKitchen();
+  };
+
+  // 交房子
+  this.handOverHouse = function() {
+    var house = new House();
+    house.bedRoom = 'ok'; // 验工 合格
+    house.livingRoom = 'ok'; // 验工 合格
+    house.kitchen = 'ok'; // 验工 合格
+    return house;
+  }
+}
+
+// 工人
+function Worker() {
+  this.createBedRoom = function() {
+    console.log('bedRoom is ok');
+  };
+  this.createLivingRoom = function() {
+    console.log('livingRoom is ok');
+  };
+  this.createKitchen = function() {
+    console.log('kitchen is ok');
+  };
+}
+
+var worker = new Worker();
+var overseer = new Overseer();
+overseer.conductCreateHouse(worker);
+var house = overseer.handOverHouse(); 
+console.log(house);
+</script>
