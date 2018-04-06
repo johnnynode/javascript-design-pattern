@@ -1,0 +1,25 @@
+<script>
+  // 商店对象
+  var shop = {};
+  // 商店内制造食物
+  shop.createFood = function() {
+    console.log('Food ok');
+  }
+  // 商店内制造饮料
+  shop.createDrink = function () {
+    console.log('Drink ok');
+  }
+  // 商店内提供服务
+  shop.service = function () {
+    this.createFood(); // 提供食物
+    this.createDrink(); // 提供饮料
+  }
+  // 商店开门营业
+  shop.open = function () {
+    return this.service(); // 提供服务
+  }
+
+  // 调用门面(外观)
+  shop.open();
+
+</script>
