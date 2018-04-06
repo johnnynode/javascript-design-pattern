@@ -1,0 +1,31 @@
+<script>
+// 使用单例模式来表示：Joh和Lily两个人之间通信的过程
+var Joh = (function(argument){
+  // 内部有一个屋子对象
+  JohHouse = function(message) {
+    this.doorbell = message; // 门铃作为信息通道,这里门铃就代表了信息
+  };
+  var door; // 初始化一个门
+  var info = {
+    // 发送消息的方法
+    sendMessage:function(message){
+      // 这就是单例模式中的没有了创建，再返回
+      if(!door) {
+        door = new JohHouse(message);
+      }
+      return door;
+    }
+  };
+  return info; // Joh 就是这个 info
+})();
+
+var Lily = {
+  callJoh:function(msg) {
+    var door = Joh.sendMessage(msg); // 此处sendMessage函数是一个闭包
+    alert(door.doorbell);
+    door = null;
+  }
+}
+
+Lily.callJoh('I am coming!'); // 弹出 I am coming!
+</script>
