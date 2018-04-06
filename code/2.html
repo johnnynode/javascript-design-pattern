@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+function Door(lock,color) {
+  this.lock = lock || 'new lock';    
+  this.color = color || 'red';
+
+  this.create = function () {
+    return 'lock: ' + this.lock + '; color: ' + this.color;
+  }
+}
+
+var door1 = new Door('old lock', 'black');
+var res1 = door1.create();
+console.log(res1);
+
+var door2 = new Door('fancy lock', 'brown');
+var res2 = door2.create();
+console.log(res2);
+
+</script>
+lock: old lock; color: black
+lock: fancy lock; color: brown
